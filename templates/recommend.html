@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+       
+        <h1 class="text-center">Recommended Properties</h1>
+        <div class="mt-4">
+            <h4>Top Similar Properties:</h4>
+            <div class="row">
+                {% for rec in recommendations %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Property ID: {{ rec.image_id }}</h5>
+                            <p class="card-text">
+                                <strong>City:</strong> {{ rec.citi }}<br>
+                                <strong>Beds:</strong> {{ rec.bed }}<br>
+                                <strong>Baths:</strong> {{ rec.bath }}<br>
+                                <strong>Sqft:</strong> {{ rec.sqft }}<br>
+                                <strong>Price:</strong> 
+                                {% if rec.price is not none %}
+                                    ${{ "{:,.2f}".format(rec.price) }}
+                                {% else %}
+                                    Not Available
+                                {% endif %}
+                                 <br>
+                                <strong>Similarity Score:</strong> {{ rec.similarity_score }}
+                               
+                                <img src="{{ rec.image_path }}" alt="Property Image" class="img-fluid">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="mt-4">
+            <a href="/home" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
