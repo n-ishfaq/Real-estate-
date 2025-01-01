@@ -2,7 +2,7 @@
 Here’s a sample `README.md` file for your Real Estate Recommendation System project. It’s structured to highlight the purpose, features, setup instructions, and technical details of your project:
 
 ---
-
+# Dataset Link: https://www.kaggle.com/datasets/ted8080/house-prices-and-images-socal
 # 🏡 Real Estate Recommendation System  
 
 A Flask-powered web application that provides personalized real estate recommendations based on cosine similarity. This project demonstrates how to build a recommendation engine using machine learning techniques and seamlessly integrate it into a web application.
